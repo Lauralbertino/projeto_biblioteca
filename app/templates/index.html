@@ -17,10 +17,15 @@
         <th scope="col">Data Publicação</th>
         <th scope="col">Status</th>
         <th scope="col">Excluir</th>
+        <th scope="col">Editar</th>
+
         </tr>
         </thead>
         
         <tbody>
+            <td><a href="editar/{{ livros.id }}" class="btn
+                btn-warning">Editar</a></td>
+                
             {% for livros in livros %}
             <tr>
             <td>{{ livros.nome }}</td>

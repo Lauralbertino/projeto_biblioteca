@@ -10,3 +10,5 @@ name='reserva'),
     path('delete/<int:id>/', DeleteLivroView.as_view(),
 name='delete'),
 ]
+
+path('editar/<int:id>/', EditarLivroView.as_view(), name='editar'),
