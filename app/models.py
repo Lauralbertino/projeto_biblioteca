@@ -69,3 +69,9 @@ class Livro(models.Model):
     class Meta:
         verbose_name = "Livro"
         verbose_name_plural = "Livros"
+
+class Emprestimo(models.Model):
+    data_emprestimo = models.DateField(verbose_name="Data do emprestimo")
+    data_devolucao = models.DateField(verbose_name="Data do devolucao")
+    livro = models.ForeignKey(Livro,on_delete=models.CASCADE,verbose_name="Nome do livro")
+    usuario = models.ForeignKey(Leitor,on_delete=models.CASCADE,verbose_name="Nome do leitor")
