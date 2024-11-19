@@ -19,7 +19,7 @@ class Meta:
     verbose_name = "Cidade"
     verbose_name_plural = "Cidades"
 
-#poblz
+#p
 
 class Autor(models.Model):
     nome = models.CharField(max_length=100, verbose_name="Nome do autor")
