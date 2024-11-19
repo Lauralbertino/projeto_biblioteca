@@ -1,9 +1,17 @@
 # Create your models here.
 from django.db import models
 
+class UF(models.Model):
+    sigla = models.CharField(max_length=100, verbose_name="UF")
+
+    def __str__(self):
+        return self.nome
+    class Meta:
+        verbose_name = "UF"
+
 class Cidade(models.Model):
     nome = models.CharField(max_length=100, verbose_name="Nome dacidade")
-    UF= models.CharField(max_length=2, verbose_name="UF")
+    uf= models.ForeignKey(UF,on_delete=models.CASCADE, verbose_name="UF")
     def __str__(self):
         return f"{self.nome}, {self.uf}"
 
@@ -35,7 +43,7 @@ class Meta:
     verbose_name = "Editora"
     verbose_name_plural = "Editoras"
 
-class Usuario(models.Model):
+class Leitor(models.Model):
     nome = models.CharField(max_length=100, verbose_name="Nome do leitor")
     email = models.CharField(max_length=100, verbose_name="Email do leitor")
     cpf = models.CharField(max_length=11, unique=True,verbose_name="CPF do leitor")
@@ -81,10 +89,4 @@ class Emprestimo(models.Model):
         verbose_name = "Emprestimo"
         verbose_name_plural = "Emprestimos"
 
-class UF(models.Model):
-    sigla = models.CharField(max_length=100, verbose_name="UF")
 
-    def __str__(self):
-        return self.nome
-    class Meta:
-        verbose_name = "UF"
